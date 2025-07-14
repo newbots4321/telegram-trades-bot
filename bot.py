@@ -46,7 +46,7 @@ def get_signal(symbol='BTCUSDT'):
 
 🎯 Entry: ${entry}
 🎯 Target: {target}
-🛑 Stoploss: {sl} 
+🛑 Stoploss: {sl}
 """
     except:
         return f"❌ Invalid symbol or Binance API error. Try like: `/trade btcusdt`"
