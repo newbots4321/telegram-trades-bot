@@ -46,16 +46,20 @@ def get_signal(symbol='BTCUSDT'):
 
 🎯 Entry: ${entry}
 🎯 Target: {target}
-🛑 Stoploss: {sl}
+🛑 Stoploss: {sl} 
 """
     except:
-        return f"❌ Invalid symbol or Binance API error.\nTry like: `/trade btcusdt`"
+        return f"❌ Invalid symbol or Binance API error. Try like: `/trade btcusdt`"
 
 def trade(update, context):
     args = context.args
     symbol = args[0].upper() if args else 'BTCUSDT'
     result = get_signal(symbol)
-    update.message.reply_text(result, parse_mode='Markdown')
+
+    # Monetag link add
+    full_message = result + "\n\n💹 *Want full chart & bonus signals?*\n🔗 [Open Signal Page](https://cryptosignalmonetag.netlify.app)"
+
+    update.message.reply_text(full_message, parse_mode='Markdown')
 
 def main():
     updater = Updater(BOT_TOKEN, use_context=True)
